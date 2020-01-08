@@ -1,5 +1,5 @@
-const filterNames =[
-	`all`, `overdue`, `today`, `favorites`, `repeating`, `tags`, `archive`];
+const filterNames = [
+  `all`, `overdue`, `today`, `favorites`, `repeating`, `tags`, `archive`];
 
 const generateFilters = () => {
   return filterNames.map((it) => {
@@ -10,5 +10,3 @@ const generateFilters = () => {
   });
 };
 export {generateFilters};
-
-	
