@@ -1,4 +1,4 @@
-import {Colors} from '../constant.js';
+import {COLORS} from '../const.js';
 
 const DescriptionItems = [
   `Изучить теорию`,
@@ -44,14 +44,16 @@ const getRandomDate = () => {
   return targetDate;
 };
 
-const generateReppeatingDays = () => {
+const generateRepeatingDays = () => {
   return Object.assign({}, DefaultRepeatingDays, {
     'mo': Math.random() > 0.5,
   });
 };
 
 const generateTags = (tags) => {
-  return tags.filter(() => Math.random() > 0.5).slice(0, 3);
+  return tags
+    .filter(() => Math.random() > 0.5)
+    .slice(0, 3);
 };
 
 const generateTask = () => {
@@ -60,18 +62,18 @@ const generateTask = () => {
   return {
     description: getRandomArrayItem(DescriptionItems),
     dueDate,
-    repeatingDays: dueDate ? DefaultRepeatingDays : generateReppeatingDays(),
+    repeatingDays: dueDate ? DefaultRepeatingDays : generateRepeatingDays(),
     tags: new Set(generateTags(Tags)),
-    color: getRandomArrayItem(Colors),
+    color: getRandomArrayItem(COLORS),
     isFavorite: Math.random() > 0.5,
     isArchive: Math.random() > 0.5,
   };
 };
 
 const generateTasks = (count) => {
-  return new Array(count).fill(``).map(generateTask);
+  return new Array(count)
+    .fill(``)
+    .map(generateTask);
 };
 
 export {generateTask, generateTasks};
-
-
