@@ -1,3 +1,4 @@
+import he from "he";
 import AbstractComponent from './abstract-component.js';
 import {formatTime, formatDate, isOverdueDate} from '../utils/common.js';
 
@@ -36,7 +37,7 @@ const createTaskTemplate = (task) => {
 
   const date = isDateShowing ? formatDate(dueDate) : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
-  const description = window.he.encode(notSanitizedDescription);
+  const description = he.encode(notSanitizedDescription);
   const hashtags = createHashtagsMarkup(Array.from(tags));
   const editButton = createButtonMarkup(`edit`, true);
   const archiveButton = createButtonMarkup(`archive`, task.isArchive);
